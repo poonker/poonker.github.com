@@ -48,9 +48,10 @@
         }
         #selection{
             position:absolute;
-            top:0;
+            top:5%;
             left:21%;
             padding-left:2%;
+            width:10%;
             /*margin-left:20%;*/
             float:left;
             overflow: hidden;
@@ -58,15 +59,17 @@
         }
         .sel-p{
             float:left;
-            margin-right:10%;
+            margin:0;
+            margin-right:8%;
             /*margin-right:10px;*/
         }
         #Btn{
             position:absolute;
             left:26%;
-            top:40%;
-            width:15%;
+            top:45%;
+            width:17%;
             height:8%;
+
             /*width:140px;*/
             /*height:44px;*/
             background:#4caf50;
@@ -79,10 +82,12 @@
         }
         #outcome{
             position:absolute;
-            left:45%;
+            left:50%;
             top:5%;
             width:40%;
             padding:2%;
+            line-height:80%;
+            font-size:0.8em;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         .date-text{
@@ -110,12 +115,14 @@
         }
         #Textarea{
             position:absolute;
-            left:47%;
+            left:20%;
             width:36%;
             top:70%;
+            /*bottom:0;*/
             height:25%;
             padding:1%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow:hidden;
+            box-shadow: 0 4px 58px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align:center;
         }
         #dv_textarea{
@@ -126,6 +133,37 @@
             line-height:120%;
             font-size:1.6em;
             text-align:center;
+        }
+        @media only screen and (max-width:600px){
+            #calculate{
+                width:50%;
+            }
+            #selection{
+                left:55%;
+                width:30%;
+            }
+            #Btn{
+                left:55%;
+                width:40%
+            }
+            #outcome{
+                width:94%;
+                left:1%;
+                top:94%;
+                font-size:0.4em;
+            }
+            .date-text{
+                font-size:0.1em;
+            }
+            #Textarea{
+                left:50%;
+                width:46%;
+                font-size:0.5em;
+                top:60%;
+            }
+            #dv_textarea{
+                width:100%;
+            }
         }
         /*#textarea{*/
             /*position:absolute;*/
