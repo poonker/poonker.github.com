@@ -457,7 +457,7 @@
                     medism += (Number(Medisum[i].value));
                 }
                 var c = Math.floor((Date.parse(b) - Date.parse(a))/86400000);
-                Inteall.value =a +" 至 "+ b +" 期间\n应用药 " + c +" 天,实际购药 "+ medism +" 粒,用药差为："+ Math.floor(sum - medism);
+                Inteall.value =a +" 至 "+ b +" 期间\n应用药 " + c +" 天,实际购药 "+ medism + " 粒,理论截止治疗日期为" + new Date((Date.parse(a)+Number(medism*86500000))).toLocaleDateString() +"日,用药差为："+ Math.floor(sum - medism);
                 kong=[];
                 sum=[];
                 medism=0;
@@ -618,12 +618,12 @@
 
 
 <script src="jquery-3.2.1.min.js"></script>
-<script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+<script src="jquery2.1.1-rc2-jquery.min.js"></script>
 <script src="js/jquery.cxcalendar.min.js"></script>
 <script src="js/jquery.cxcalendar.languages.js"></script>
 <script>
     $.cxCalendar.defaults.startDate = 2015;
-    $.cxCalendar.defaults.endDate = 2020;
+    $.cxCalendar.defaults.endDate = 2019;
     $('#date_a').cxCalendar();
     $('#date_b').cxCalendar();
     $('#date_c').cxCalendar();
