@@ -8,6 +8,8 @@
         body{
             /*background:url(http://img2.niutuku.com/desk/1207/1044/ntk120631.jpg)*/
             font-size:1em;
+            margin:0;
+            padding:0;
         }
         span{
             vertical-align:middle;
@@ -65,9 +67,9 @@
         }
         #Btn{
             position:absolute;
-            left:26%;
-            top:45%;
-            width:17%;
+            left:70%;
+            top:90%;
+            width:16%;
             height:8%;
 
             /*width:140px;*/
@@ -82,9 +84,9 @@
         }
         #outcome{
             position:absolute;
-            left:50%;
+            left:30%;
             top:5%;
-            width:40%;
+            width:50%;
             padding:2%;
             line-height:80%;
             font-size:0.8em;
@@ -117,7 +119,7 @@
             position:absolute;
             left:20%;
             width:36%;
-            top:70%;
+            top:71%;
             /*bottom:0;*/
             height:25%;
             padding:1%;
@@ -128,11 +130,12 @@
         #dv_textarea{
             border:1px solid white;
             color:black;
-            height:50%;
-            width:82%;
+            height:65%;
+            width:92%;
             line-height:120%;
             font-size:1.6em;
             text-align:center;
+            overflow:hidden;
         }
        .mingxi {
             margin: auto 0;
@@ -192,27 +195,32 @@
     <script>
         window.onload = function() {
             //得有个判断提示日期有问题！
-            var Inte1 = document.getElementById("date_a");
-            var Inte2 = document.getElementById("date_b");
-            var Inte3 = document.getElementById("date_c");
-            var Inte4 = document.getElementById("date_d");
-            var Inte5 = document.getElementById("date_e");
-            var Inte6 = document.getElementById("date_f");
-            var Inte7 = document.getElementById("date_g");
-            var Inte8 = document.getElementById("date_h");
-            var Inte9 = document.getElementById("date_i");
-            var Inte111 = document.getElementById("int111");
-            var Inte222 = document.getElementById("int222");
-            var Inte333 = document.getElementById("int333");
-            var Inte444 = document.getElementById("int444");
-            var Inte555 = document.getElementById("int555");
-            var Inte666 = document.getElementById("int666");
-            var Inte777 = document.getElementById("int777");
-            var Inte888 = document.getElementById("int888");
+//            var Inte1 = document.getElementById("date_a");
+//            var Inte2 = document.getElementById("date_b");
+//            var Inte3 = document.getElementById("date_c");
+//            var Inte4 = document.getElementById("date_d");
+//            var Inte5 = document.getElementById("date_e");
+//            var Inte6 = document.getElementById("date_f");
+//            var Inte7 = document.getElementById("date_g");
+//            var Inte8 = document.getElementById("date_h");
+//            var Inte9 = document.getElementById("date_i");
+//            var Inte111 = document.getElementById("int111");
+//            var Inte222 = document.getElementById("int222");
+//            var Inte333 = document.getElementById("int333");
+//            var Inte444 = document.getElementById("int444");
+//            var Inte555 = document.getElementById("int555");
+//            var Inte666 = document.getElementById("int666");
+//            var Inte777 = document.getElementById("int777");
+//            var Inte888 = document.getElementById("int888");
 
             var datenumber = document.getElementsByClassName('cal-date');
-            var kong =[];
-            var a,b;
+            var kong = [];
+            var konger = [];
+            var a, b;
+            var mingXi = document.getElementsByClassName('mingxi');
+            var jieGuo = document.getElementsByName('jieguo');
+            var midnumber = 0;
+            var keyy =0;
 
             var Inteall = document.getElementById("dv_textarea");
             var medism = 0;
@@ -285,192 +293,132 @@
                 }
             };
 //*--*---------------------------------------------------------------------------------------------
-          //点击按钮事件
+            //点击按钮事件
             Btn.onclick = function () {
-                var datedui =document.getElementsByName('datetext');             //获得输入的日期值
+                var datedui = document.getElementsByName('datetext');             //获得输入的日期值
                 var dateduii = document.getElementsByName('datetext1');          //获得输入的日期值
                 var meddui = document.getElementsByName('medtext');                 //获得所有药量值
                 var riqicha = document.getElementsByName('text1');                      //日期差
                 var chazhii = document.getElementsByName('chazhi');                 //日期药片差值
                 var sum = 0;
                 var asum = [];
-                var key1 = Date.parse(Inte2.value) - Date.parse(Inte1.value);
-                Inte111.value = key1 / 86400000;
-                if(isNaN(Inte111.value)){
-                    Inte111.value = (Date.parse(Inte3.value) - Date.parse(Inte1.value))/86400000;
-                    if(isNaN(Inte111.value)){
-                        Inte111.value = (Date.parse(Inte4.value) - Date.parse(Inte1.value))/86400000;
-                        if(isNaN(Inte111.value)){
-                            Inte111.value = (Date.parse(Inte5.value) - Date.parse(Inte1.value))/86400000;
-                            if(isNaN(Inte111.value)){
-                                Inte111.value = (Date.parse(Inte6.value) - Date.parse(Inte1.value))/86400000;
-                                if(isNaN(Inte111.value)){
-                                    Inte111.value = (Date.parse(Inte7.value) - Date.parse(Inte1.value))/86400000;
-                                    if(isNaN(Inte111.value)){
-                                        Inte111.value = (Date.parse(Inte8.value) - Date.parse(Inte1.value))/86400000;
-                                        if(isNaN(Inte111.value)){
-                                            Inte111.value = 0;
-//                                            Inte111.value = Math.floor((Date.parse(Date()) - Date.parse(Inte1.value))/86400000);
-//                                            if(isNaN(Inte111.value)){
-//                                                Inte111.value = 0;
-//                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
 
-                asum.push(Inte111.value);
-                var key2 = Date.parse(Inte3.value) - Date.parse(Inte2.value);
-                Inte222.value = key2 / 86400000;
-                    if(isNaN(Inte222.value)){
-                        Inte222.value = (Date.parse(Inte4.value) - Date.parse(Inte2.value))/86400000;
-                        if(isNaN(Inte222.value)){
-                            Inte222.value = (Date.parse(Inte5.value) - Date.parse(Inte2.value))/86400000;
-                            if(isNaN(Inte222.value)){
-                                Inte222.value = (Date.parse(Inte6.value) - Date.parse(Inte2.value))/86400000;
-                                if(isNaN(Inte222.value)){
-                                    Inte222.value = (Date.parse(Inte7.value) - Date.parse(Inte2.value))/86400000;
-                                    if(isNaN(Inte222.value)){
-                                        Inte222.value = (Date.parse(Inte8.value) - Date.parse(Inte2.value))/86400000;
-                                        if(isNaN(Inte222.value)){
-                                            Inte222.value = 0;
-//                                            Inte222.value = Math.floor((Date.parse(Date()) - Date.parse(Inte2.value))/86400000);
-//                                            if(isNaN(Inte222.value)){
-//                                                Inte222.value = 0;
-//                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                asum.push(Inte222.value);
-                var key3 = Date.parse(Inte4.value) - Date.parse(Inte3.value);
-                Inte333.value = key3 / 86400000;
-                    if(isNaN(Inte333.value)){
-                        Inte333.value = (Date.parse(Inte5.value) - Date.parse(Inte3.value))/86400000;
-                        if(isNaN(Inte333.value)){
-                            Inte333.value = (Date.parse(Inte6.value) - Date.parse(Inte3.value))/86400000;
-                            if(isNaN(Inte333.value)){
-                                Inte333.value = (Date.parse(Inte7.value) - Date.parse(Inte3.value))/86400000;
-                                if(isNaN(Inte333.value)){
-                                    Inte333.value = (Date.parse(Inte8.value) - Date.parse(Inte3.value))/86400000;
-                                    if(isNaN(Inte333.value)){
-                                        Inte333.value =0;
-//                                        Inte333.value = Math.floor((Date.parse(Date()) - Date.parse(Inte3.value))/86400000);
-//                                        if(isNaN(Inte333.value)){
-//                                            Inte333.value =0;
-//                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                asum.push(Inte333.value);
-                var key4 = Date.parse(Inte5.value) - Date.parse(Inte4.value);
-                Inte444.value = key4 / 86400000;
-                    if(isNaN(Inte444.value)){
-                        Inte444.value = (Date.parse(Inte6.value) - Date.parse(Inte4.value))/86400000;
-                        if(isNaN(Inte444.value)){
-                            Inte444.value = (Date.parse(Inte7.value) - Date.parse(Inte4.value))/86400000;
-                            if(isNaN(Inte444.value)){
-                                Inte444.value = (Date.parse(Inte8.value) - Date.parse(Inte4.value))/86400000;
-                                if(isNaN(Inte444.value)){
-                                    Inte444.value=0;
-//                                    Inte444.value = Math.floor((Date.parse(Date()) - Date.parse(Inte4.value))/86400000);
-//                                    if(isNaN(Inte444.value)){
-//                                        Inte444.value=0;
-//                                    }
-                                }
-                            }
-                        }
-                    }
-                asum.push(Inte444.value);
-                var key5 = Date.parse(Inte6.value) - Date.parse(Inte5.value);
-                Inte555.value = key5 / 86400000;
-                    if(isNaN(Inte555.value)){
-                        Inte555.value = (Date.parse(Inte7.value) - Date.parse(Inte5.value))/86400000;
-                        if(isNaN(Inte555.value)){
-                            Inte555.value = (Date.parse(Inte8.value) - Date.parse(Inte5.value))/86400000;
-                            if(isNaN(Inte555.value)){
-                                Inte555.value=0;
-//                                Inte555.value = Math.floor((Date.parse(Date()) - Date.parse(Inte5.value))/86400000);
-//                                if(isNaN(Inte555.value)){
-//                                    Inte555.value=0;
-//                                }
-                            }
-                        }
-                    }
-                asum.push(Inte555.value);
-                var key6 = Date.parse(Inte7.value) - Date.parse(Inte6.value);
-                Inte666.value = key6 / 86400000;
-                    if(isNaN(Inte666.value)){
-                        Inte666.value = (Date.parse(Inte8.value) - Date.parse(Inte6.value))/86400000;
-                        if(isNaN(Inte666.value)){
-                            Inte666.value=0;
-//                            Inte666.value = Math.floor((Date.parse(Date()) - Date.parse(Inte6.value))/86400000);
-//                            if(isNaN(Inte666.value)){
-//                                Inte666.value=0;
-//                            }
-                        }
-                    }
-                asum.push(Inte666.value);
-                var key7 = Date.parse(Inte8.value) - Date.parse(Inte7.value);
-                Inte777.value = key7 / 86400000;
-                    if(isNaN(Inte777.value)){
-                        Inte777.value=0;
-//                        Inte777.value = Math.floor((Date.parse(Date()) - Date.parse(Inte6.value))/86400000);
-//                        if(isNaN(Inte777.value)){
-//                            Inte777.value=0;
-//                        }
-                    }
-                asum.push(Inte777.value);
-                var key8 = Date.parse(Inte9.value) - Date.parse(Inte8.value);
-//                Inte888.value = Math.floor(key8 / 86400000);
-//                if(isNaN(Inte888.value)){
-//                    Inte888.value=0;
-//                }
-                asum.push(Math.floor(key8 / 86400000));
 
-                for(var i =0;i<8;i++){
-                    if(isNaN(Number(asum[i]))){
+                for (var i = 0; i < datenumber.length; i++) {
+//                    asum.push(datenumber[i].value);
+                    if (isNaN(Number(asum[i]))) {
                         asum[i] = 0;
                     }
                     sum += Number(asum[i]);
-                }
-
-                for(var i =0;i<datenumber.length;i++){
                     kong.push(datenumber[i].value);
+                    konger.push(datenumber[i].value+"-"+Numpicker[i].value);
                 }
+//alert(konger[0]);
+//                alert(konger[0].replace(/:\d{1,2}/,''));
+//                alert(konger[0].slice(11,14));
+//                for(var i =0;i<datenumber.length;i++){
+//                    if(datenumber[i].value == ""){
+//                        kong.push(0);
+//                    }else{
+//                        kong.push(datenumber[i].value);
+//                    }
+//                    alert(kong[i]);
+
                 kong.sort();
-                    for(var i=0;i<kong.length;i++){
-                        if(kong[i] != 0){
-                            a = kong[i];
+                konger.sort();
+                for(var i = 0;i<konger.length;i++){
+                    if(konger[i].length < 5){
+                        konger[i] = konger[i].replace("-","")
+                    }else{
+                        konger[i] = konger[i].slice(11);
+                    }
+                }
+                //表格里的日期填写
+                for (var i = 0; i < datedui.length; i++) {
+//                    var indexx = i;
+                    for (var k = 0; k < datenumber.length; k++) {
+//                        if(kong[k] !== 0) {
+//                            datedui[i].value = kong[k + i];
+//                            if (k + i >= datedui.length) {
+//                                dateduii[i].value = "Kong";
+//                            } else {
+//                                dateduii[i].value = kong[k + i + 1];
+//                            }
+//                            break;
+//                        }
+//                    }
+                        if (kong[k] !== "") {
+                            datedui[i].value = kong[k + i];
+//                            meddui[i].value = konger[k + i].replace(/[^(:{1,2})]/,"");
+                            meddui[i].value = konger[k + i];
+                            chazhii[i].value =new Date((Date.parse( datedui[i].value )+Number(meddui[i].value * 86400000))).toLocaleDateString();
+                            if (k +i+ 1 >= datenumber.length) {
+                                dateduii[i].value = "空";
+                                if(i+1 >=dateduii.length){
+                                    mingXi[i].style.display = 'none';
+                                }else{
+                                    mingXi[i+1].style.display = 'none';
+                                }
+                            } else {
+                                dateduii[i].value = kong[k + i+1];
+                                mingXi[i+1].style.display = "block";
+                                keyy = Date.parse( datedui[i].value )+Number(meddui[i].value * 86400000) - Date.parse(dateduii[i].value);
+                                if(keyy >= 0){
+                                    midnumber += keyy/86400000;
+                                    jieGuo[i].value = "正常";
+                                    jieGuo[i].style.color = "black";
+                                }else if(keyy/86400000 + midnumber >= 0) {
+                                    jieGuo[i].value = "正常";
+                                    jieGuo[i].style.color = "black";
+                                }else if(keyy/86400000 + midnumber < -15){
+                                    jieGuo[i].value = "断药";
+                                    jieGuo[i].style.color = "red";
+                                }else{
+                                    jieGuo[i].value = "正常";
+                                    jieGuo[i].style.color = "black";
+                                }
+
+                            }
                             break;
                         }
                     }
-                b = kong[kong.length-1];
-                for(var i = 0;i<Medisum.length-1;i++){
+
+                }
+                for (var i = 0; i < kong.length; i++) {
+                    if (kong[i] != 0) {
+                        a = kong[i];
+                        break;
+                    }
+                }
+                b = kong[kong.length - 1];
+                for (var i = 0; i < Medisum.length - 1; i++) {
                     medism += (Number(Medisum[i].value));
                 }
-                var c = Math.floor((Date.parse(b) - Date.parse(a))/86400000);
-                Inteall.value =a +" 至 "+ b +" 期间\n应用药 " + c +" 天,实际购药 "+ medism + " 粒,理论截止治疗日期为" + new Date((Date.parse(a)+Number(medism*86500000))).toLocaleDateString() +"日,用药差为："+ Math.floor(sum - medism);
-                kong=[];
-                sum=[];
-                medism=0;
+                var c = Math.floor((Date.parse(b) - Date.parse(a)) / 86400000);
+                Inteall.value =a +" 至 "+ b +" 期间\n应用药 " + c +" 天,实际购药 "+ medism + " 粒,理论截止治疗日期为" +
+                        new Date((Date.parse(a)+Number(medism*86400000))).toLocaleDateString() +"日.";
 
-                //表格里的日期填写
-                for(var i=0;i<datedui.length;i++){
-                    datedui[i].value =datenumber[i].value;
-                    dateduii[i].value = datenumber[i+1].value;
-                    meddui[i].value =Numpicker[i].value;
-                    chazhii[i].value = riqicha[i].value - meddui[i].value;
-                }
-            };
-        }
+
+
+
+//                    datedui[i].value =datenumber[i].value;\
+//                    datedui[i].value = kong[i].value;
+//                    dateduii[i].value = datenumber[i+1].value;
+//                    chazhii[i].value = riqicha[i].value - meddui[i].value;
+
+//结果判定
+
+
+//清除再次点击时的影响
+                kong = [];
+                konger = [];
+                sum = [];
+                medism = 0;
+                keyy = 0;
+                midnumber = 0;
+            }
+
+            }
     </script>
 </head>
 <body>
@@ -519,88 +467,81 @@
 <div id="outcome">
 <p id="out_text">明细：</p>
     <div  id="mingxi1" class="mingxi">
-    <input type="text" name="datetext" id="date_text1" class="date-text">
-    <span>至</span>
-    <input type="text" name="datetext1" id="date_text2" class="date-text">
-    <span>之间间隔</span>
-    <input type="text" name="text1" id="int111" class="out-it">
-    <span>天,购药</span>
-    <input type="text" name="medtext" id="med_text1" class="out-it">
-    <span>粒,相差</span>
-    <input type="text" name="chazhi" id="chazhi1" class="out-it">
-        <span>天剂量</span>
+        <input type="text" name="datetext" id="date_text1" class="date-text">
+        <span>购药</span>
+        <input type="text" name="medtext" id="med_text1" class="out-it">
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi1" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text2" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo1" class = "out-it">
     </div>
     <div  id="mingxi2" class="mingxi">
         <input type="text" name="datetext" id="date_text3" class="date-text">
-        <span>至</span>
-        <input type="text" name="datetext1" id="date_text4" class="date-text">
-        <span>之间间隔</span>
-        <input type="text" name="text1" id="int222" class="out-it">
-        <span>天,购药</span>
+        <span>购药</span>
         <input type="text" name="medtext" id="med_text2" class="out-it">
-        <span>粒,相差</span>
-        <input type="text" name="chazhi" id="chazhi2" class="out-it">
-        <span>天剂量</span>
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi2" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text4" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo2" class = "out-it">
     </div>
     <div  id="mingxi3" class="mingxi">
         <input type="text" name="datetext" id="date_text5" class="date-text">
-        <span>至</span>
-        <input type="text" name="datetext1" id="date_text6" class="date-text">
-        <span>之间间隔</span>
-        <input type="text" name="text1" id="int333" class="out-it">
-        <span>天,购药</span>
+        <span>购药</span>
         <input type="text" name="medtext" id="med_text3" class="out-it">
-        <span>粒,相差</span>
-        <input type="text" name="chazhi" id="chazhi3" class="out-it">
-        <span>天剂量</span>
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi3" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text6" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo3" class = "out-it">
     </div>
     <div  id="mingxi4" class="mingxi">
         <input type="text" name="datetext" id="date_text7" class="date-text">
-        <span>至</span>
-        <input type="text" name="datetext1" id="date_text8" class="date-text">
-        <span>之间间隔</span>
-        <input type="text" name="text1" id="int444" class="out-it">
-        <span>天,购药</span>
+        <span>购药</span>
         <input type="text" name="medtext" id="med_text4" class="out-it">
-        <span>粒,相差</span>
-        <input type="text" name="chazhi" id="chazhi4" class="out-it">
-        <span>天剂量</span>
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi4" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text8" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo4" class = "out-it">
     </div>
     <div  id="mingxi5" class="mingxi">
         <input type="text" name="datetext" id="date_text9" class="date-text">
-        <span>至</span>
-        <input type="text" name="datetext1" id="date_text10" class="date-text">
-        <span>之间间隔</span>
-        <input type="text" name="text1" id="int555" class="out-it">
-        <span>天,购药</span>
+        <span>购药</span>
         <input type="text" name="medtext" id="med_text5" class="out-it">
-        <span>粒,相差</span>
-        <input type="text" name="chazhi" id="chazhi5" class="out-it">
-        <span>天剂量</span>
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi5" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text10" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo5" class = "out-it">
     </div>
     <div  id="mingxi6" class="mingxi">
         <input type="text" name="datetext" id="date_text11" class="date-text">
-        <span>至</span>
-        <input type="text" name="datetext1" id="date_text12" class="date-text">
-        <span>之间间隔</span>
-        <input type="text" name="text1" id="int666" class="out-it">
-        <span>天,购药</span>
+        <span>购药</span>
         <input type="text" name="medtext" id="med_text6" class="out-it">
-        <span>粒,相差</span>
-        <input type="text" name="chazhi" id="chazhi6" class="out-it">
-        <span>天剂量</span>
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi6" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text12" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo6" class = "out-it">
     </div>
     <div  id="mingxi7" class="mingxi">
         <input type="text" name="datetext" id="date_text13" class="date-text">
-        <span>至</span>
-        <input type="text" name="datetext1" id="date_text14" class="date-text">
-        <span>之间间隔</span>
-        <input type="text" name="text1" id="int777" class="out-it">
-        <span>天,购药</span>
+        <span>购药</span>
         <input type="text" name="medtext" id="med_text7" class="out-it">
-        <span>粒,相差</span>
-        <input type="text" name="chazhi" id="chazhi7" class="out-it">
-        <span>天剂量</span>
+        <span>粒，理论治疗截止日期：</span>
+        <input type="text" name="chazhi" id="chazhi7" class="date-text">
+        <span>再次购药日期：</span>
+        <input type="text" name="datetext1" id="date_text14" class="date-text">
+        <span>&nbsp;&nbsp;</span>
+        <input type="text" name="jieguo" id="jieguo7" class = "out-it">
     </div>
 
 <br/>
