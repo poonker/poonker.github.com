@@ -1,4 +1,4 @@
 # poonker.github.com
 
-Its a simply Calculator for the use of calculate my company medicine data, it was wrote by js and little jquery.
+It's a simple Calculator, wrote by js and little jquery.
 
